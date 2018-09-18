@@ -1,3 +1,8 @@
+## 3.49.0
+* Add `braintree.exceptions.http.timeout_error.ConnectTimeoutError`
+* Add `braintree.exceptions.http.timeout_error.ReadTimeoutError`
+* Raise introduced exceptions while allowing for backwards compatibility through inheritance.
+
 ## 3.48.0
 * Add ID to Transaction in SubscriptionChargedSuccessfully test webhook (#99, thanks @bjackson)
 * Fix dispute results in transactions not showing the correct status sometimes

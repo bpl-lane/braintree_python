@@ -92,3 +92,26 @@ class TestHttp(unittest.TestCase):
             correct_exception = False
 
         self.assertTrue(correct_exception)
+
+    def test_read_timeouts(self):
+        """It should handle a request read timeout."""
+        try:
+            raise requests.exceptions.ReadTimeout()
+        except braintree.exceptions.http.timeout_error.ReadTimeoutError:
+            correct_exception = True
+        except Exception:
+            correct_exception = False
+
+        self.assertTrue(correct_exception)
+
+
+    def test_connection_timeouts(self):
+        """It should handle a request connection timeout."""
+        try:
+            raise requests.exceptions.ConnectTimeout()
+        except braintree.exceptions.http.timeout_error.ConnectTimeoutError:
+            correct_exception = True
+        except Exception:
+            correct_exception = False
+
+        self.assertTrue(correct_exception)
